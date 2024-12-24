@@ -1,0 +1,17 @@
+---
+const { title, bg, id } = Astro.props;
+---
+
+<section class="max-w-screen-lg mx-auto py-7 max-xl:p-5 relative" id={id}>
+  {
+    bg && (
+      <span class="absolute -top-5 inset-x-1/2 -translate-x-1/2 w-7/12 aspect-video bg-blue-500 opacity-5 blur-3xl rounded-full" />
+    )
+  }
+  <h2
+    class="text-4xl/[50px] font-bold mb-10 bg-gradient-to-b from-neutral-50 to-neutral-500 bg-clip-text text-transparent"
+  >
+    {title}
+  </h2>
+  <slot />
+</section>
