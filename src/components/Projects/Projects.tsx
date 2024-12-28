@@ -34,11 +34,15 @@ const projects: IProject[] = [
   },
 ];
 
-export default function Projects() {
+type Props = {
+  projects: IProject[];
+};
+
+export default function Projects({ projects }: Props) {
   const [selectedProject, setSelectedProject] = useState<IProject | null>(null);
   return (
     <>
-      <p className="-mt-5 mb-7">Click on a project to see more.</p>
+      <p className="-mt-5 mb-7">Click on a project to see its details</p>
       <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((project, index) => (
           <ProjectItem

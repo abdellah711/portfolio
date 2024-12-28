@@ -1,4 +1,5 @@
 ---
+import { getCollection } from "astro:content";
 import About from "../components/About";
 import Contact from "../components/Contact";
 import ExperienceTimeline from "../components/ExperienceTimeline";
@@ -8,6 +9,15 @@ import Section from "../components/Section.astro";
 import SkillsCards from "../components/SkillsCards";
 import SocialMedia from "../components/SocialMedia";
 import Layout from "../layouts/Layout.astro";
+
+const projects = await getCollection("projects").then((data) =>
+  Promise.all(
+    data.map(async (project) => ({
+      ...project.data,
+      description: project.body,
+    }))
+  )
+);
 ---
 
 <Layout title="Alaoui Abdellah | Software Engineer">
@@ -17,7 +27,7 @@ import Layout from "../layouts/Layout.astro";
     <About />
   </Section>
   <Section title="Projects" id="projects">
-    <Projects client:load />
+    <Projects projects={projects} client:load />
   </Section>
   <Section title="Skills" bg>
     <SkillsCards />

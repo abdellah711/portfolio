@@ -62,7 +62,9 @@ export default function ProjectModal({ project, onClose }: Props) {
                 )}
               </div>
               <Technologies technologies={project?.technologies ?? []} />
-              <p className="max-w-prose py-2">{project?.description}</p>
+              <p className="max-w-prose whitespace-pre-wrap py-2">
+                {project?.description}
+              </p>
             </div>
           </>
         )}
