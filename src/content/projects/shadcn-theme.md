@@ -1,9 +1,8 @@
 ---
 title: shadcn ui theme generator
 shortDescription: A tool to generate themes for shadcn ui projects
-image: /shadcn-theme-generator.png
 images:
-  - /shadcn-theme-generator.png
+  - shadcn-theme-generator.png
 technologies:
   - React
   - Next.js

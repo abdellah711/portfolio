@@ -1,9 +1,8 @@
 ---
 title: Web Scraper
 shortDescription: A web scraper for extracting data from different sources
-image: /scraper.png
 images:
-  - /scraper.png
+  - scraper.png
 technologies:
   - React
   - Express

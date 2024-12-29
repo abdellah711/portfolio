@@ -1,3 +1,4 @@
+import type { GetImageResult } from "astro";
 import Technologies from "./Technologies";
 
 export type IProject = {
@@ -5,8 +6,7 @@ export type IProject = {
   shortDescription: string;
   description: string;
   technologies: string[];
-  image: string;
-  images?: string[];
+  images?: GetImageResult[];
   github?: string;
   live?: string;
 };
@@ -24,7 +24,8 @@ export const ProjectItem = ({ project, onClick }: Props) => {
     >
       <figure>
         <img
-          src={project.image}
+          src={project.images?.[0]?.src}
+          {...project.images?.[0]?.attributes}
           alt={project.title}
           className="aspect-video w-full object-cover"
         />

@@ -1,6 +1,5 @@
-import { GithubIcon, LinkedinIcon, TwitterIcon } from "lucide-react";
+import { GithubIcon, LinkedinIcon } from "lucide-react";
 import { SOCIAL_MEDIA } from "../utils/constants";
-import clsx from "clsx";
 
 export default function SocialMedia() {
   const icons = [
@@ -19,7 +18,7 @@ export default function SocialMedia() {
             <p className="sr-only end-[120%] z-0 group-hover:not-sr-only group-hover:absolute group-hover:animate-[fade-left_0.3s]">
               {name}
             </p>
-            <a href={url} target="_blank">
+            <a href={url} target="_blank" aria-label={name}>
               {icons[i]}
             </a>
           </li>

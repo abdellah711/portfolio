@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import About from "../components/About";
+import About from "../components/About.astro";
 import Contact from "../components/Contact";
 import ExperienceTimeline from "../components/ExperienceTimeline";
 import Hero from "../components/Hero";
@@ -9,14 +9,34 @@ import Section from "../components/Section.astro";
 import SkillsCards from "../components/SkillsCards";
 import SocialMedia from "../components/SocialMedia";
 import Layout from "../layouts/Layout.astro";
+import { getImage } from "astro:assets";
 
-const projects = await getCollection("projects").then((data) =>
-  Promise.all(
-    data.map(async (project) => ({
+const projectsImages = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/imgs/projects/*.{jpeg,jpg,png,gif}"
+);
+const projectsRaw = await getCollection("projects");
+
+const projects = await Promise.all(
+  projectsRaw.map(async (project) => {
+    const imagesPath: string[] = project.data.images.map(
+      (image: string) => `/src/assets/imgs/projects/${image}`
+    );
+    if (imagesPath.some((imagePath) => !projectsImages[imagePath]))
+      throw new Error(
+        `"${imagesPath.find((imagePath) => !projectsImages[imagePath])}" does not exist in glob: "src/assets/imgs/projects/*.{jpeg,jpg,png,gif}"`
+      );
+    return {
       ...project.data,
       description: project.body,
-    }))
-  )
+      images: await Promise.all(
+        imagesPath.map((imagePath) =>
+          getImage({
+            src: projectsImages[imagePath](),
+          })
+        )
+      ),
+    };
+  })
 );
 ---
 

@@ -32,11 +32,12 @@ export default function ProjectModal({ project, onClose }: Props) {
                     className="size-full bg-cover bg-center supports-[backdrop-filter]:bg-[image:var(--img)]"
                     style={{
                       //@ts-expect-error
-                      "--img": `url(${image})`,
+                      "--img": `url(${image.src})`,
                     }}
                   >
                     <img
-                      src={image}
+                      src={image?.src}
+                      {...image?.attributes}
                       alt={project?.title}
                       className="size-full rounded-xl object-contain supports-[backdrop-filter]:backdrop-blur-xl md:h-[60vh]"
                     />
