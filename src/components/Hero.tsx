@@ -12,18 +12,22 @@ export default function Hero() {
             Hey, I'm Alaoui<span className="text-primary">.</span>
           </h1>
           <p className="max-w-prose text-lg">
-            a Software Engineer passionate about JavaScript, TypeScript, and
-            React. With experience since 2018, I specialize in building dynamic,
-            user-focused frontend applications.
+            Experienced Software Engineer with a strong skill set in TypeScript,
+            React, and NodeJS, built through a combination of academic learning
+            and practical experience since 2018.
           </p>
           <div className="flex gap-5">
             <a href="#contact" className="btn btn-primary">
               Contact me
             </a>
-            <button className="group btn btn-ghost">
+            <a
+              className="group btn btn-ghost"
+              href="/ALAOUI_Abdellah_resume.pdf"
+              download
+            >
               Download CV
               <ChevronRightIcon className="mt-0.5 size-5 -translate-x-1 transition group-hover:translate-x-0" />
-            </button>
+            </a>
           </div>
         </div>
         <div className="-z-10 origin-bottom-right animate-[wiggle_5s_infinite] select-none text-7xl md:text-[10rem]">
