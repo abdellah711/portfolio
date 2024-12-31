@@ -5,9 +5,9 @@ export default {
     extend: {
       keyframes: {
         wiggle: {
-          "0%, 10%, 20%": { transform: "rotate(-3deg)" },
-          "5%, 15%, 25%": { transform: "rotate(3deg)" },
-          "30%": { transform: "rotate(0deg)" },
+          "10%, 20%, 30%": { transform: "rotate(-5deg)" },
+          "5%, 15%, 25%": { transform: "rotate(5deg)" },
+          "0%, 35%": { transform: "rotate(0deg)" },
         },
         "rotate-fade": {
           "0%": { transform: "rotate(0deg)", opacity: 0 },

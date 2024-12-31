@@ -7,7 +7,7 @@ const timeline: TimelineProps[] = [
     title: "Software Engineering Degree",
     date: "2018 - 2023",
     description:
-      "I completed my computer science engineering degree in Computer Science at ENSA (National Schools of Applied Sciences), where I gained foundational knowledge in software development, algorithms and system design",
+      "I completed my Computer Science Engineering degree at ENSA (National Schools of Applied Sciences), where I gained foundational knowledge in software development, algorithms and system design",
   },
   {
     title: "Freelancer",
@@ -28,16 +28,16 @@ const timeline: TimelineProps[] = [
       "I started my internship at a multi-national company as a front-end developer, where I contributed to developing SDKs for an e-commerce platform using React and TypeScript",
   },
   {
-    title: "Winner of the Best-Overall Project - Refine + Dev.to Hackathon",
+    title: "Winner of the Best Overall Project - Refine + Dev.to Hackathon",
     date: "July 2023 - August 2023",
     description:
-      "I participated in Refine + Dev.to Hackathon, where I developed a solution to integrate Refine (a CRUD library for React) in Expo projects, and I earned the Best-Overall project.",
+      "I participated in the Refine + Dev.to Hackathon, where I developed a solution to integrate Refine (a CRUD library for React) into Expo projects, and I earned the Best-Overall project award.",
   },
   {
     title: "Front End Engineer",
     date: "September 2023 - Present",
     description:
-      "After my internship, I joined the same multi-national company as a Front End Engineer where I continue to develop SDKs and applications for an E-commerce platform using React and Typescript",
+      "After my internship, I joined the same multi-national company as a Front-End Engineer where I continue to develop SDKs and applications for an e-commerce platform using React and Typescript",
   },
 ];
 

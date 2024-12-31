@@ -5,7 +5,7 @@ import { useReducer, useState, type FormEventHandler } from "react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { SOCIAL_MEDIA } from "../utils/constants";
 
-const SUBMIT_URL = import.meta.env.CONTACT_US_URL as string;
+const SUBMIT_URL = import.meta.env.PUBLIC_CONTACT_US_URL as string;
 
 type FormType = {
   name: string;
@@ -68,8 +68,7 @@ export default function Contact() {
           <div className="flex flex-col gap-4" ref={ref}>
             {isSent && (
               <div className="alert border-none bg-emerald-500/10 text-emerald-500">
-                Thank you for your message! I will get back to you shortly.{" "}
-                <span onClick={() => setIsSent(false)}>Close</span>
+                Thank you for your message! I will get back to you shortly
               </div>
             )}
             <input

@@ -1,5 +1,6 @@
 ---
 import Navbar from "../components/Navbar/Navbar";
+import { SOCIAL_MEDIA } from "../utils/constants";
 
 interface Props {
   title: string;
@@ -21,6 +22,26 @@ const { title } = Astro.props;
       href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
     />
     <title>{title}</title>
+    <meta
+      name="description"
+      content="Experienced Software Engineer with a strong skill set in TypeScript, React, and NodeJS, built through a combination of academic learning and practical experience since 2018."
+    />
+    <meta property="og:title" content="Alaoui Abdellah | Software Engineer" />
+    <meta
+      property="og:description"
+      content="Experienced Software Engineer with a strong skill set in TypeScript, React, and NodeJS, built through a combination of academic learning and practical experience since 2018."
+    />
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "Alaoui Abdellah",
+        jobTitle: "Software Engineer",
+        sameAs: SOCIAL_MEDIA.map(({ url }) => url),
+      })}
+    />
   </head>
   <body>
     <Navbar />

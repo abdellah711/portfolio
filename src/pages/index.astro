@@ -75,18 +75,6 @@ const projects = await Promise.all(
   .bg-hero {
     @apply before:absolute before:bottom-10 before:-z-10 before:h-screen before:w-[35rem] before:rounded-full before:bg-slate-400 before:opacity-5 before:blur-3xl;
   }
-  .bg-glow::after {
-    /* content: "";
-		position: absolute;
-		inset: 0;
-		background: radial-gradient(
-			50% 50% at 50% 50%,
-			rgba(255, 255, 255, 0.5) 0%,
-			rgba(255, 255, 255, 0) 100%
-		);
-		opacity: 0.1; */
-    /* mix-blend-mode: overlay; */
-  }
   .bg-glow::before {
     z-index: -1;
     content: "";
@@ -94,7 +82,6 @@ const projects = await Promise.all(
     top: 3rem;
     right: 2rem;
     border-radius: 999px;
-    /* @apply bg-blue-500; */
     background-color: #8aa1ba;
     width: 15rem;
     height: 15rem;
