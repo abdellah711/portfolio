@@ -27,6 +27,11 @@ export default function Contact() {
     setIsLoading(true);
     const formData = new FormData(e.target as HTMLFormElement);
     let hasError = false;
+    gtag("event", "contact_form_submission", {
+      event_category: "form",
+      event_label: "contact_form",
+      value: 1,
+    });
     try {
       const resp = await fetch(SUBMIT_URL, {
         method: "POST",
@@ -78,6 +83,12 @@ export default function Contact() {
               name="entry.1370387352"
               value={data.name}
               onChange={(e) => setData({ name: e.target.value })}
+              onFocus={() =>
+                gtag("event", "form_field_interaction", {
+                  event_category: "form interaction",
+                  event_label: "name",
+                })
+              }
             />
             <input
               type="email"
@@ -114,7 +125,15 @@ export default function Contact() {
             <li>
               <div className="flex gap-3">
                 <EnvelopeIcon className="mr-2 size-5" />
-                <a href="mailto:alaouiabdellah711@gmail.com">
+                <a
+                  href="mailto:alaouiabdellah711@gmail.com"
+                  onClick={(e) =>
+                    gtag("event", "social_media_click", {
+                      event_category: "social",
+                      event_label: "email",
+                    })
+                  }
+                >
                   alaouiabdellah711@gmail.com
                 </a>
               </div>
@@ -126,7 +145,16 @@ export default function Contact() {
             {SOCIAL_MEDIA.map((social, index) => (
               <li className="flex gap-3" key={index}>
                 <i className={social.icon} />
-                <a href={social.url} target="_blank">
+                <a
+                  href={social.url}
+                  target="_blank"
+                  onClick={() =>
+                    gtag("event", "social_media_click", {
+                      event_category: "social",
+                      event_label: social.name,
+                    })
+                  }
+                >
                   {social.label}
                 </a>
               </li>

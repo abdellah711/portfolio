@@ -8,6 +8,14 @@ type Props = {
 
 export default function Projects({ projects }: Props) {
   const [selectedProject, setSelectedProject] = useState<IProject | null>(null);
+
+  const handleProjectClick = (project: IProject) => () => {
+    setSelectedProject(project);
+    gtag("event", "project_view", {
+      event_category: "project",
+      event_label: project.title,
+    });
+  };
   return (
     <>
       <p className="-mt-5 mb-7">Click on a project to see its details</p>
@@ -16,7 +24,7 @@ export default function Projects({ projects }: Props) {
           <ProjectItem
             key={index}
             project={project}
-            onClick={() => setSelectedProject(project)}
+            onClick={handleProjectClick(project)}
           />
         ))}
       </ul>
