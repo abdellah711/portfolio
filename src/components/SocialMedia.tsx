@@ -18,7 +18,17 @@ export default function SocialMedia() {
             <p className="sr-only end-[120%] z-0 group-hover:not-sr-only group-hover:absolute group-hover:animate-[fade-left_0.3s]">
               {name}
             </p>
-            <a href={url} target="_blank" aria-label={name}>
+            <a
+              href={url}
+              target="_blank"
+              aria-label={name}
+              onClick={(e) =>
+                gtag("event", "social_media_click", {
+                  event_category: "social",
+                  event_label: name,
+                })
+              }
+            >
               {icons[i]}
             </a>
           </li>

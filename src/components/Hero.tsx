@@ -24,6 +24,7 @@ export default function Hero() {
               className="group btn btn-ghost"
               href="/ALAOUI_Abdellah_resume.pdf"
               download
+              id="download-cv"
             >
               Download CV
               <ChevronRightIcon className="mt-0.5 size-5 -translate-x-1 transition group-hover:translate-x-0" />
