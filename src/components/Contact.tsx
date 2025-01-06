@@ -30,7 +30,6 @@ export default function Contact() {
     gtag("event", "contact_form_submission", {
       event_category: "form",
       event_label: "contact_form",
-      value: 1,
     });
     try {
       const resp = await fetch(SUBMIT_URL, {
@@ -42,8 +41,13 @@ export default function Contact() {
         return;
       }
       setData({ name: "", email: "", message: "" });
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
+      gtag("event", "contact_form_error", {
+        event_category: "form",
+        event_label: "error",
+        value: 'message' in error ? error.message : ''
+      });
     } finally {
       setIsLoading(false);
       setIsSent(!hasError);

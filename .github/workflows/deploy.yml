@@ -13,7 +13,8 @@ permissions:
   contents: read
   pages: write
   id-token: write
-
+env:
+  PUBLIC_CONTACT_US_URL: ${{ vars.PUBLIC_CONTACT_US_URL }}
 jobs:
   build:
     runs-on: ubuntu-latest
