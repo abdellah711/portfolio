@@ -40,9 +40,9 @@ const skills: SkillCardProps[] = [
     href: "https://expressjs.com/",
   },
   {
-    title: "Expo",
+    title: "Expo (RN)",
     description: "Mobile Framework",
-    icon: "devicon-android-plain colored",
+    icon: "devicon-react-original colored",
     href: "https://expo.dev/",
   },
   {
