@@ -4,6 +4,7 @@ import Technologies from "./Technologies";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import { Navigation, Pagination } from "swiper/modules";
+import { useState } from "react";
 
 type Props = {
   project: IProject | null;
@@ -11,8 +12,23 @@ type Props = {
 };
 
 export default function ProjectModal({ project, onClose }: Props) {
+  const [expandedImage, setExpandedImage] = useState<string | null>(null);
+
   return (
     <dialog open={!!project} onClose={onClose} className="modal">
+      {expandedImage && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
+          onClick={() => setExpandedImage(null)}
+        >
+          <img
+            src={expandedImage}
+            alt={project?.title}
+            className="max-h-[90vh] max-w-[90vw] touch-pinch-zoom object-contain"
+            style={{ touchAction: "pan-x pan-y pinch-zoom" }}
+          />
+        </div>
+      )}
       <div className="modal-box grid w-11/12 max-w-screen-lg grid-cols-1 gap-5 lg:grid-cols-2">
         {!!project && (
           <>
@@ -39,7 +55,8 @@ export default function ProjectModal({ project, onClose }: Props) {
                       src={image?.src}
                       {...image?.attributes}
                       alt={project?.title}
-                      className="size-full rounded-xl object-contain supports-[backdrop-filter]:backdrop-blur-xl md:h-[60vh]"
+                      className="size-full cursor-pointer rounded-xl object-contain supports-[backdrop-filter]:backdrop-blur-xl md:h-[60vh]"
+                      onClick={() => setExpandedImage(image.src)}
                     />
                   </SwiperSlide>
                 ))}
