@@ -34,10 +34,10 @@ const timeline: TimelineProps[] = [
       "I participated in the Refine + Dev.to Hackathon, where I developed a solution to integrate Refine (a CRUD library for React) into Expo projects, and I earned the Best-Overall project award.",
   },
   {
-    title: "Front End Engineer",
+    title: "Software Engineer",
     date: "September 2023 - Present",
     description:
-      "After my internship, I joined the same multi-national company as a Front-End Engineer where I continue to develop SDKs and applications for an e-commerce platform using React and Typescript",
+      "After my internship, I joined the same multi-national company as a Software Engineer where I continue to develop SDKs and applications for an e-commerce platform using React and Typescript",
   },
 ];
 
