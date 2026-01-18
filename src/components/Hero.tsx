@@ -12,9 +12,9 @@ export default function Hero() {
             Hey, I'm Alaoui<span className="text-primary">.</span>
           </h1>
           <p className="max-w-prose text-lg">
-            Experienced Software Engineer with a strong skill set in TypeScript,
-            React, and NodeJS, built through a combination of academic learning
-            and practical experience since 2018.
+            Experienced Software Engineer specializing in the TypeScript
+            ecosystem. I build production-ready web applications using React and
+            Node.js
           </p>
           <div className="flex gap-5">
             <a href="#contact" className="btn btn-primary">

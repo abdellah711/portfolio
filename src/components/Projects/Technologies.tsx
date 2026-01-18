@@ -16,7 +16,8 @@ export default function Technologies({
         <span
           key={index}
           className={
-            "badge h-auto border-none px-3 py-1 " + getTechnologyColor(tech)
+            "badge h-auto border-none px-3 py-1 font-medium " +
+            getTechnologyColor(tech)
           }
         >
           {tech}

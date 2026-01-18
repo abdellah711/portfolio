@@ -1,5 +1,6 @@
 import { GithubIcon, LinkedinIcon } from "lucide-react";
 import { SOCIAL_MEDIA } from "../utils/constants";
+import { captureEvent } from "../utils/posthog";
 
 export default function SocialMedia() {
   const icons = [
@@ -23,8 +24,7 @@ export default function SocialMedia() {
               target="_blank"
               aria-label={name}
               onClick={(e) =>
-                gtag("event", "social_media_click", {
-                  event_category: "social",
+                captureEvent("social_media_click", {
                   event_label: name,
                 })
               }

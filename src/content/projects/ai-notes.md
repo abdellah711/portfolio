@@ -1,5 +1,5 @@
 ---
-title: AI note-taking web app
+title: NoteMind
 shortDescription: A note-taking web app with AI features
 images:
   - ai-notes.png
@@ -17,5 +17,4 @@ technologies:
 github: https://github.com/abdellah711/ai-notes
 ---
 
-A simple note-taking web app with a chat interface to interact with the AI and get answers to your questions based on your notes, the AI can also generate new notes based on your questions.
-It was just a fun project to play with the AI SDK and the Gemini API.
+A context-aware knowledge base featuring an AI chat interface. Unlike standard note apps, it utilizes RAG (Retrieval-Augmented Generation) to allow users to ask AI questions about their own notes. The system leverages the Gemini API and Vercel AI SDK to analyze stored content and generate relevant answers or create new notes on the fly

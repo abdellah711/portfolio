@@ -1,5 +1,6 @@
 ---
 import Navbar from "../components/Navbar/Navbar";
+import Posthog from "../components/Posthog.astro";
 import { SOCIAL_MEDIA } from "../utils/constants";
 
 interface Props {
@@ -42,40 +43,20 @@ const { title } = Astro.props;
         sameAs: SOCIAL_MEDIA.map(({ url }) => url),
       })}
     />
-    <script
-      is:inline
-      src="https://www.googletagmanager.com/gtag/js?id=G-NK0KG40L56"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      // tracking events anonymously for privacy
-      gtag("consent", "default", {
-        ad_storage: "denied",
-        ad_user_data: "denied",
-        ad_personalization: "denied",
-        analytics_storage: "granted",
-      });
-
-      gtag("config", "G-NK0KG40L56");
-    </script>
+    <Posthog />
     <script>
+      import { captureEvent } from "../utils/posthog";
       // track cta clicks
       document.querySelectorAll('a[href="#contact"]').forEach((btn) => {
         btn.addEventListener("click", () => {
-          gtag("event", "cta_click", {
-            event_category: "button",
+          captureEvent("cta_click", {
             event_label: "contact",
           });
         });
       });
       // track download resume
       document.querySelector("a#download-cv")?.addEventListener("click", () => {
-        gtag("event", "cta_click", {
-          event_category: "button",
+        captureEvent("cta_click", {
           event_label: "resume",
         });
       });
@@ -84,12 +65,5 @@ const { title } = Astro.props;
   <body>
     <Navbar />
     <slot />
-    <noscript
-      ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-WPK3JPRG"
-        height="0"
-        width="0"
-        style="display:none;visibility:hidden"></iframe></noscript
-    >
   </body>
 </html>

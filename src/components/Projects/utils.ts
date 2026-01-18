@@ -9,6 +9,7 @@ export const getTechnologyColor = (tech: string) => {
       return "text-gray-100 bg-gray-100/10";
     case "tailwindcss":
       return "text-cyan-500 bg-cyan-500/10";
+    case "astro":
     case "redis":
       return "text-red-400 bg-red-500/10";
     case "sqlite":

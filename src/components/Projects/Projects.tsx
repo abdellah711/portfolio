@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ProjectItem, type IProject } from "./ProjectItem";
 import ProjectModal from "./ProjectModal";
+import { captureEvent } from "../../utils/posthog";
 
 type Props = {
   projects: IProject[];
@@ -11,8 +12,7 @@ export default function Projects({ projects }: Props) {
 
   const handleProjectClick = (project: IProject) => () => {
     setSelectedProject(project);
-    gtag("event", "project_view", {
-      event_category: "project",
+    captureEvent("project_view", {
       event_label: project.title,
     });
   };

@@ -88,4 +88,9 @@ const projects = await Promise.all(
     filter: blur(8rem);
     opacity: 0.5;
   }
+  .email::before {
+    content: "moc.liamg" "\0040" attr(data-user);
+    unicode-bidi: bidi-override;
+    direction: rtl;
+  }
 </style>

@@ -1,13 +1,14 @@
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
 import clsx from "clsx";
+import { CrownIcon } from "lucide-react";
 import type { ReactNode } from "react";
 
 const timeline: TimelineProps[] = [
   {
-    title: "Software Engineering Degree",
+    title: "State Engineer's Degree in Computer Science",
     date: "2018 - 2023",
     description:
-      "I completed my Computer Science Engineering degree at ENSA (National Schools of Applied Sciences), where I gained foundational knowledge in software development, algorithms and system design",
+      "Specialized in Software Engineering and Distributed Systems at ENSA. Graduated with honors",
   },
   {
     title: "Freelancer",
@@ -16,28 +17,29 @@ const timeline: TimelineProps[] = [
       "While studying, I got my hands dirty by building several web and mobile applications for different local clients.",
   },
   {
-    title: "Full Stack Developer Intern",
+    title: "Full Stack Developer Intern | Ministry of Finance",
     date: "August 2022 - October 2022",
     description:
-      "I joined the Ministry of Finance as an intern, where I worked on developing an internal web application using React, ASP.NET Core, and SQL Server, this role allowed me to contribute to a critical project aimed at improving government services through modern technologies",
+      "Engineered a React/ASP.NET internal dashboard for the Ministry of Finance, digitizing government services",
   },
   {
-    title: "Front End Developer Intern",
+    title: "Front End Developer Intern | SQLI",
     date: "March 2023 - August 2023",
     description:
-      "I started my internship at a multi-national company as a front-end developer, where I contributed to developing SDKs for an e-commerce platform using React and TypeScript",
+      "Built and deployed core functional modules used directly in production. Refactored monolithic code into reusable, domain-specific packages to improve maintainability and deployment speed.",
   },
   {
+    highlight: true,
     title: "Winner of the Best Overall Project - Refine + Dev.to Hackathon",
     date: "July 2023 - August 2023",
     description:
-      "I participated in the Refine + Dev.to Hackathon, where I developed a solution to integrate Refine (a CRUD library for React) into Expo projects, and I earned the Best-Overall project award.",
+      "Engineered a custom integration layer bridging Refine (CRUD library for React) with Expo, significantly reducing boilerplate code for mobile CRUD applications",
   },
   {
-    title: "Software Engineer",
+    title: "Software Engineer | SQLI",
     date: "September 2023 - Present",
     description:
-      "After my internship, I joined the same multi-national company as a Software Engineer where I continue to develop SDKs and applications for an e-commerce platform using React and Typescript",
+      "Core engineer for a large scale e-commerce platform, serving millions of global users. I architect and maintain critical functional SDKs that power the main storefront, ensuring modularity and seamless integration across different markets",
   },
 ];
 
@@ -58,6 +60,7 @@ type TimelineProps = {
   title: ReactNode;
   date: string;
   description: string;
+  highlight?: boolean;
   isLatest?: boolean;
 };
 
@@ -66,6 +69,7 @@ const Timeline = ({
   date,
   description,
   isLatest = false,
+  highlight = false,
 }: TimelineProps) => {
   return (
     <li>
@@ -74,10 +78,20 @@ const Timeline = ({
         <CheckCircleIcon className="size-5 text-green-500" />
       </div>
       <div className="timeline-end my-6">
-        <div className="timeline-box max-w-prose space-y-2 border border-white/10 bg-base-200 p-7">
-          <p className="text-xl font-medium text-white/80">{title}</p>
-          <p className="text-base-content/70">{date}</p>
-          <p className="text-base-content/90">{description}</p>
+        <div
+          className={clsx(
+            "timeline-box flex max-w-prose gap-2 border border-white/10 bg-base-200 p-7",
+            highlight && "!border-green-500/30 ring-1 ring-green-500/30",
+          )}
+        >
+          {highlight && (
+            <CrownIcon className="mt-1 size-5 shrink-0 text-green-500" />
+          )}
+          <div className="space-y-2">
+            <p className="text-xl font-medium text-white/80">{title}</p>
+            <p className="text-base-content/70">{date}</p>
+            <p className="text-base-content/90">{description}</p>
+          </div>
         </div>
       </div>
       <hr className={clsx("bg-white/50", isLatest && "rounded-badge")} />
