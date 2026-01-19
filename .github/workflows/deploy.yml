@@ -14,7 +14,9 @@ permissions:
   pages: write
   id-token: write
 env:
-  PUBLIC_CONTACT_US_URL: ${{ vars.PUBLIC_CONTACT_US_URL }}
+  PUBLIC_POSTHOG_API_KEY: ${{ vars.PUBLIC_POSTHOG_API_KEY }}
+  PUBLIC_STATIC_FORMS_KEY: ${{ vars.PUBLIC_STATIC_FORMS_KEY }}
+  PUBLIC_RECAPTCHA_SITE_KEY: ${{ vars.PUBLIC_RECAPTCHA_SITE_KEY }}
 jobs:
   build:
     runs-on: ubuntu-latest
