@@ -12,18 +12,18 @@ import Layout from "../layouts/Layout.astro";
 import { getImage } from "astro:assets";
 
 const projectsImages = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/imgs/projects/*.{jpeg,jpg,png,gif}"
+  "/src/assets/imgs/projects/*.{jpeg,jpg,png,gif}",
 );
 const projectsRaw = await getCollection("projects");
 
 const projects = await Promise.all(
   projectsRaw.map(async (project) => {
     const imagesPath: string[] = project.data.images.map(
-      (image: string) => `/src/assets/imgs/projects/${image}`
+      (image: string) => `/src/assets/imgs/projects/${image}`,
     );
     if (imagesPath.some((imagePath) => !projectsImages[imagePath]))
       throw new Error(
-        `"${imagesPath.find((imagePath) => !projectsImages[imagePath])}" does not exist in glob: "src/assets/imgs/projects/*.{jpeg,jpg,png,gif}"`
+        `"${imagesPath.find((imagePath) => !projectsImages[imagePath])}" does not exist in glob: "src/assets/imgs/projects/*.{jpeg,jpg,png,gif}"`,
       );
     return {
       ...project.data,
@@ -32,11 +32,11 @@ const projects = await Promise.all(
         imagesPath.map((imagePath) =>
           getImage({
             src: projectsImages[imagePath](),
-          })
-        )
+          }),
+        ),
       ),
     };
-  })
+  }),
 );
 ---
 
@@ -58,16 +58,14 @@ const projects = await Promise.all(
   <!-- <Section> -->
   <Contact client:load />
   <!-- </Section> -->
-  <footer class="text-center p-5 bg-white/5">
-    <span>Built with</span>
-    <a
-      href="https://astro.build"
-      class="link link-hover underline-offset-4 text-orange-500">Astro</a
-    >
-    <span>and</span>
-    <a
-      class="link link-hover underline-offset-4 text-blue-400"
-      href="https://tailwindcss.com">Tailwind</a
+  <footer class="flex justify-center p-5 bg-white/5">
+    <a href="https://astro.build"
+      ><img
+        src="https://astro.badg.es/v2/built-with-astro/small.svg"
+        alt="Built with Astro"
+        width="192"
+        height="32"
+      /></a
     >
   </footer>
 </Layout>
